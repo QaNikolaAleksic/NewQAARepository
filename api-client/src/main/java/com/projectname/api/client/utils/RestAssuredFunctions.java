@@ -82,6 +82,16 @@ public class RestAssuredFunctions {
                 .put(uri).then().extract().response();
     }
 
+    public static Response put(Object body, String uri) {
+        String json = new GsonBuilder().setPrettyPrinting().create().toJson(body);
+        return given().contentType(ContentType.JSON).body(json).when().put(uri).then().extract().response();
+    }
+
+    public static Response delete(String uri) {
+        return given().contentType(ContentType.TEXT).when()
+                .delete(uri).then().extract().response();
+    }
+
    //if it is basic auth
     public static Response getWithBasicAuth(BasicAuth loginUser, String uri) {
         return given().auth().preemptive()
