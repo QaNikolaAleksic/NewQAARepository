@@ -8,4 +8,10 @@ public class ApiEndpoints {
         return USERS + "/" + userId;
     }
 
+    public static final String BOOKS = "api/books";
+
+    public static final String books(String booksId) {
+        return BOOKS + "/" + booksId;
+    }
+
 }
